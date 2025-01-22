@@ -1,14 +1,13 @@
-import { DecimalPipe } from '@angular/common';
-import { Component } from '@angular/core';
-import { RouterOutlet } from '@angular/router';
+import { CommonModule, DecimalPipe } from '@angular/common';
+import { Component, OnInit } from '@angular/core';
 
 @Component({
   selector: 'app-root',
-  imports: [DecimalPipe],
+  imports: [DecimalPipe, CommonModule],
   templateUrl: './app.component.html',
   styleUrl: './app.component.css'
 })
-export class AppComponent {
+export class AppComponent implements OnInit {
   title = 'gcp-engineer';
   allQuestions = [
     {
@@ -3402,19 +3401,24 @@ export class AppComponent {
       correctAnswer: 1,
     },
   ];
-
-  mode: string = ''; // 'random' o 'block'
+  showDiv = true;
+  mode: string = 'random'; // 'random' o 'block'
   blockIndex: number = 0;
   currentQuestions: any[] = [];
   currentQuestionIndex: number = 0;
   currentQuestion: any = null;
   shuffledAnswers: any[] = [];
   score: number = 0;
+  mistakes: number = 0;
   answered: boolean = false;
   selectedAnswerIndex: number | null = null;
   showQuiz: boolean = false;
   showStats: boolean = false;
   selectedAnswers: number[] = [];
+
+  ngOnInit() {
+    this.startNewQuiz();
+  }
 
   // Seleccionar modo
   startMode(mode: string, blockIndex: number = 0): void {
@@ -3429,6 +3433,7 @@ export class AppComponent {
     this.currentQuestions = this.getShuffledQuestions();
     this.currentQuestionIndex = 0;
     this.score = 0;
+    this.mistakes = 0; // Reinicia los fallos
     this.showStats = false;
     this.showQuestion();
   }
@@ -3460,6 +3465,8 @@ export class AppComponent {
     const correctAnswerIndex = this.shuffledAnswers.findIndex((answer) => answer.isCorrect);
     if (index === correctAnswerIndex) {
       this.score++;
+    } else {
+      this.mistakes++; // Incrementa los fallos
     }
 
     // Mostrar estadísticas al final

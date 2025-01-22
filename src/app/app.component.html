@@ -1,44 +1,71 @@
-@if (!showQuiz) {
-<div>
-  <h2>Seleccionar Modo</h2>
-  <button (click)="startMode('random')">Modo Aleatorio</button>
+<div style="position: relative; text-align: center">
+  <!-- Puntuación -->
+  <div
+    style="
+      position: fixed;
+      top: 10px;
+      right: 10px;
+      background: #f8f9fa;
+      border: 1px solid #ccc;
+      border-radius: 5px;
+      padding: 10px;
+      font-family: Arial, sans-serif;
+      box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+    "
+  >
+    <p style="margin: 0; font-size: 14px; color: green">
+      <strong>Aciertos:</strong> {{ score }}
+    </p>
+    <p style="margin: 0; font-size: 14px; color: red">
+      <strong>Fallos:</strong> {{ mistakes }}
+    </p>
+    <p style="margin: 0; font-size: 14px">
+      <strong>Respondidas:</strong> {{ currentQuestionIndex }} /
+      {{ currentQuestions.length }}
+    </p>
+    <p style="margin: 0; font-size: 14px">
+      <strong>Porcentaje:</strong>
+      {{ (score / currentQuestions.length) * 100 | number : "1.1-1" }}%
+    </p>
+  </div>
 </div>
-} @if (showQuiz) {
+
 <div>
-  @if (!showStats) {
+  <button (click)="showDiv = !showDiv">
+    {{ showDiv ? "Ocultar" : "Visualizar" }}
+  </button>
+  <button (click)="startNewQuiz()">Reiniciar</button>
 
-  <div>
+  @if(showDiv){
+  <div style="width: 70%" id="random">
     <h3>{{ currentQuestion?.question }}</h3>
-    @for (answer of shuffledAnswers; track $index; let i = $index) {
-
-    <div
+    @for (answer of shuffledAnswers; track $index; let i= $index) {
+    <li
+      (click)="selectAnswer(i)"
       [class.correct]="answered && answer.isCorrect"
       [class.incorrect]="
         answered && selectedAnswerIndex === i && !answer.isCorrect
       "
-      (click)="selectAnswer(i)"
+      style="
+        padding: 10px;
+        margin: 5px 0;
+        border: 1px solid #ccc;
+        cursor: pointer;
+        border-radius: 5px;
+      "
     >
       {{ answer.text }}
-    </div>
+    </li>
     } @if (answered && currentQuestionIndex < currentQuestions.length - 1) {
     <button (click)="nextQuestion()">Siguiente</button>
     }
   </div>
-  } @if (showStats) {
-
-  <div>
-    <h2>Resultados</h2>
-    <p>Puntaje: {{ score }} / {{ currentQuestions.length }}</p>
-    <p>
-      Porcentaje:
-      {{ (score / currentQuestions.length) * 100 | number : "1.1-1" }}%
-    </p>
-    <button (click)="startNewQuiz()">Reiniciar</button>
-    <button (click)="showQuiz = false">Cambiar Modo</button>
-  </div>
   }
 </div>
-} @for (item of allQuestions; track $index; let i = $index) {
+
+<hr style="margin: 4rem" />
+
+@for (item of allQuestions; track $index; let i = $index) {
 <div style="width: 70%">
   <h2>{{ item.id }}. {{ item.question }}</h2>
   <ul style="list-style: none; padding: 0">
@@ -55,7 +82,6 @@
         border-radius: 5px;
       "
     >
-      >
       {{ answer }}
     </li>
     }
