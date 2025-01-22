@@ -3,13 +3,12 @@
   <div
     style="
       position: fixed;
-      top: 10px;
+      bottom: 0;
       right: 10px;
       background: #f8f9fa;
       border: 1px solid #ccc;
       border-radius: 5px;
       padding: 10px;
-      font-family: Arial, sans-serif;
       box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
     "
   >
@@ -39,7 +38,7 @@
   </div>
 
   @if(showDiv){
-  <div style="width: 50%; margin: auto; border: 1px solid gray" id="random">
+  <div class="hola" style="margin: auto; border: 1px solid gray" id="random">
     <div style="margin: 1rem">
       <h3>{{ currentQuestion?.question }}</h3>
       @for (answer of shuffledAnswers; track $index; let i= $index) {
@@ -67,14 +66,15 @@
   }
 </div>
 
-<hr style="margin: 4rem" />
+<hr style="margin: 2rem" />
 
 @for (item of allQuestions; track $index; let i = $index) {
 <div
-  style="width: 50%; margin: auto; border: 1px solid gray; margin-bottom: 2rem"
+  class="hola"
+  style="margin: auto; border: 1px solid gray; margin-bottom: 1rem"
 >
   <div style="margin: 1rem">
-    <h2>{{ item.id }}. {{ item.question }}</h2>
+    <h4>{{ item.id }}. {{ item.question }}</h4>
     <ul style="list-style: none; padding: 0; width: 100%">
       @for (answer of item.answers; track $index; let j = $index) {
       <li
