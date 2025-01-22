@@ -31,34 +31,38 @@
 </div>
 
 <div>
-  <button (click)="showDiv = !showDiv">
-    {{ showDiv ? "Ocultar" : "Visualizar" }}
-  </button>
-  <button (click)="startNewQuiz()">Reiniciar</button>
+  <div style="display: flex; justify-content: center">
+    <button (click)="showDiv = !showDiv">
+      {{ showDiv ? "Ocultar" : "Visualizar" }}
+    </button>
+    <button (click)="startNewQuiz()">Reiniciar</button>
+  </div>
 
   @if(showDiv){
-  <div style="width: 70%" id="random">
-    <h3>{{ currentQuestion?.question }}</h3>
-    @for (answer of shuffledAnswers; track $index; let i= $index) {
-    <li
-      (click)="selectAnswer(i)"
-      [class.correct]="answered && answer.isCorrect"
-      [class.incorrect]="
-        answered && selectedAnswerIndex === i && !answer.isCorrect
-      "
-      style="
-        padding: 10px;
-        margin: 5px 0;
-        border: 1px solid #ccc;
-        cursor: pointer;
-        border-radius: 5px;
-      "
-    >
-      {{ answer.text }}
-    </li>
-    } @if (answered && currentQuestionIndex < currentQuestions.length - 1) {
-    <button (click)="nextQuestion()">Siguiente</button>
-    }
+  <div style="width: 50%; margin: auto; border: 1px solid gray" id="random">
+    <div style="margin: 1rem">
+      <h3>{{ currentQuestion?.question }}</h3>
+      @for (answer of shuffledAnswers; track $index; let i= $index) {
+      <li
+        (click)="selectAnswer(i)"
+        [class.correct]="answered && answer.isCorrect"
+        [class.incorrect]="
+          answered && selectedAnswerIndex === i && !answer.isCorrect
+        "
+        style="
+          padding: 10px;
+          margin: 5px 0;
+          border: 1px solid #ccc;
+          cursor: pointer;
+          border-radius: 5px;
+        "
+      >
+        {{ answer.text }}
+      </li>
+      } @if (answered && currentQuestionIndex < currentQuestions.length - 1) {
+      <button (click)="nextQuestion()">Siguiente</button>
+      }
+    </div>
   </div>
   }
 </div>
@@ -66,25 +70,30 @@
 <hr style="margin: 4rem" />
 
 @for (item of allQuestions; track $index; let i = $index) {
-<div style="width: 70%">
-  <h2>{{ item.id }}. {{ item.question }}</h2>
-  <ul style="list-style: none; padding: 0">
-    @for (answer of item.answers; track $index; let j = $index) {
-    <li
-      (click)="selectAnswer2(i, j)"
-      [class.correct]="selectedAnswers[i] === j && j === item.correctAnswer"
-      [class.incorrect]="selectedAnswers[i] === j && j !== item.correctAnswer"
-      style="
-        padding: 10px;
-        margin: 5px 0;
-        border: 1px solid #ccc;
-        cursor: pointer;
-        border-radius: 5px;
-      "
-    >
-      {{ answer }}
-    </li>
-    }
-  </ul>
+<div
+  style="width: 50%; margin: auto; border: 1px solid gray; margin-bottom: 2rem"
+>
+  <div style="margin: 1rem">
+    <h2>{{ item.id }}. {{ item.question }}</h2>
+    <ul style="list-style: none; padding: 0; width: 100%">
+      @for (answer of item.answers; track $index; let j = $index) {
+      <li
+        (click)="selectAnswer2(i, j)"
+        [class.correct]="selectedAnswers[i] === j && j === item.correctAnswer"
+        [class.incorrect]="selectedAnswers[i] === j && j !== item.correctAnswer"
+        style="
+          padding: 10px;
+          margin: 5px 0;
+          border: 1px solid #ccc;
+          cursor: pointer;
+          border-radius: 5px;
+        "
+      >
+        {{ answer }}
+      </li>
+      }
+    </ul>
+  </div>
 </div>
+
 }
