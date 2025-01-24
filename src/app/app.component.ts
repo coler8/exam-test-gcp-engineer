@@ -1156,7 +1156,7 @@ export class AppComponent implements OnInit {
         "Your company implemented BigQuery as an enterprise data warehouse. Users from multiple business units run queries on this data warehouse. However, you notice that query costs for BigQuery are very high, and you need to control costs. Which two methods should you use? (Choose two.)",
       answers: [
         "Split the users from business units to multiple projects.",
-        "Apply a user- or project-level custom query quota for BigQuery data warehouse.",
+        "Apply a user- or project-level custom query quota for BigQuery data warehouse. correcta tmb",
         "Create separate copies of your BigQuery data warehouse for each business unit.",
         "Split your BigQuery data warehouse into multiple data warehouses for each business unit.",
         "E. Change your BigQuery query model from on-demand to flat rate. Apply the appropriate number of slots to each Project.",
@@ -1913,7 +1913,7 @@ export class AppComponent implements OnInit {
         "You are building an application that processes data files uploaded from thousands of suppliers. Your primary goals for the application are data security and the expiration of aged data. You need to design the application to:\n* Restrict access so that suppliers can access only their own data.\n* Give suppliers write access to data only for 30 minutes.\n* Delete data that is over 45 days old.\nYou have a very short development cycle, and you need to make sure that the application requires minimal maintenance. Which two strategies should you use?\n(Choose two.)",
       answers: [
         "Build a lifecycle policy to delete Cloud Storage objects after 45 days.",
-        "Use signed URLs to allow suppliers limited time access to store their objects.",
+        "Use signed URLs to allow suppliers limited time access to store their objects. CORRECTA TMB",
         "Set up an SFTP server for your application, and create a separate user for each supplier.",
         "Build a Cloud function that triggers a timer of 45 days to delete objects that have expired.",
         "E. Develop a script that loops through all Cloud Storage buckets and deletes any buckets that are older than 45 days.",
@@ -3175,7 +3175,7 @@ export class AppComponent implements OnInit {
       question:
         "You just installed the Google Cloud CLI on your new corporate laptop. You need to list the existing instances of your company on Google Cloud. What must you do before you run the gcloud compute instances list command? (Choose two.)",
       answers: [
-        "Run gcloud auth login, enter your login credentials in the dialog window, and paste the received login token to gcloud CLI.",
+        "Run gcloud auth login, enter your login credentials in the dialog window, and paste the received login token to gcloud CLI. correcta tmb",
         "Create a Google Cloud service account, and download the service account key. Place the key file in a folder on your machine where gcloud CLI can find it.",
         "Download your Cloud Identity user account key. Place the key file in a folder on your machine where gcloud CLI can find it.",
         "Run gcloud config set compute/zone $my_zone to set the default zone for gcloud CLI.",
@@ -3309,7 +3309,7 @@ export class AppComponent implements OnInit {
         "Your company uses BigQuery to store and analyze data. Upon submitting your query in BigQuery, the query fails with a quotaExceeded error. You need to diagnose the issue causing the error. What should you do? (Choose two.)",
       answers: [
         "Use BigQuery BI Engine to analyze the issue.",
-        "Use the INFORMATION_SCHEMA views to analyze the underlying issue.",
+        "Use the INFORMATION_SCHEMA views to analyze the underlying issue. correcta tmb",
         "Configure Cloud Trace to analyze the issue.",
         "Search errors in Cloud Audit Logs to analyze the issue.",
         "E. View errors in Cloud Monitoring to analyze the issue.",
