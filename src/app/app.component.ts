@@ -1692,18 +1692,6 @@ export class AppComponent implements OnInit {
       correctAnswer: 3,
     },
     {
-      id: 141,
-      question:
-        "Question #141Topic 1\nYou created several resources in multiple Google Cloud projects. All projects are linked to different billing accounts. To better estimate future charges, you want to have a single visual representation of all costs incurred. You want to include new cost data as soon as possible. What should you do?",
-      answers: [
-        "Configure Billing Data Export to BigQuery and visualize the data in Data Studio.",
-        "Visit the Cost Table page to get a CSV export and visualize it using Data Studio.",
-        "Fill all resources in the Pricing Calculator to get an estimate of the monthly cost.",
-        "Use the Reports view in the Cloud Billing Console to view the desired cost information.",
-      ],
-      correctAnswer: 0,
-    },
-    {
       id: 142,
       question:
         "Your company has workloads running on Compute Engine and on-premises. The Google Cloud Virtual Private Cloud (VPC) is connected to your WAN over a\nVirtual Private Network (VPN). You need to deploy a new Compute Engine instance and ensure that no public Internet traffic can be routed to it. What should you do?",
@@ -2312,7 +2300,7 @@ export class AppComponent implements OnInit {
         "Upload the image to Cloud Storage and create a Kubernetes Service referencing the image.",
         "Upload the image to Cloud Storage and create a Kubernetes Deployment referencing the image.",
         "Upload the image to Container Registry and create a Kubernetes Service referencing the image.",
-        "Upload the image to Container Registry and create a Kubernetes Deployment referencing the image.",
+        "Upload the image to Container 'Artifact' Registry and create a Kubernetes Deployment referencing the image.",
       ],
       correctAnswer: 3,
     },
@@ -2399,13 +2387,6 @@ export class AppComponent implements OnInit {
         "Store game statistics in a Bigtable database partitioned by username.",
       ],
       correctAnswer: 1,
-    },
-    {
-      id: 200,
-      question:
-        "You are building an application that stores relational data from users. Users across the globe will use this application. Your CTO is concerned about the scaling requirements because the size of the user base is unknown. You need to implement a database solution that can scale with your user growth with minimum configuration changes. Which storage solution should you use?",
-      answers: ["Cloud SQL", "Firestore", "Cloud Spanner", "Bigtable"],
-      correctAnswer: 2,
     },
     {
       id: 201,
@@ -2607,18 +2588,6 @@ export class AppComponent implements OnInit {
       correctAnswer: 2,
     },
     {
-      id: 218,
-      question:
-        "Your company runs one batch process in an on-premises server that takes around 30 hours to complete. The task runs monthly, can be performed offline, and must be restarted if interrupted. You want to migrate this workload to the cloud while minimizing cost. What should you do?",
-      answers: [
-        "Create an Instance Template with Spot VMs On. Create a Managed Instance Group from the template and adjust Target CPU Utilization. Migrate the workload.",
-        "Migrate the workload to a Compute Engine VM. Start and stop the instance as needed.",
-        "Migrate the workload to a Google Kubernetes Engine cluster with Spot nodes.",
-        "Migrate the workload to a Compute Engine Spot VM.",
-      ],
-      correctAnswer: 1,
-    },
-    {
       id: 219,
       question:
         "You are planning to migrate the following on-premises data management solutions to Google Cloud:\n\n• One MySQL cluster for your main database\n• Apache Kafka for your event streaming platform\n• One Cloud SQL for PostgreSQL database for your analytical and reporting needs\n\nYou want to implement Google-recommended solutions for the migration. You need to ensure that the new solutions provide global scalability and require minimal operational and infrastructure management. What should you do?",
@@ -2687,42 +2656,6 @@ export class AppComponent implements OnInit {
         "Deploy your solution on multiple standalone Compute Engine instances, and replace existing instances with high-CPU instances when CPU utilization on Cloud Monitoring reaches a certain threshold.",
         "Deploy your solution to an instance group, and increase the number of available instances whenever you see high CPU utilization in Cloud Monitoring.",
         "Deploy your solution to an instance group, and set the autoscaling based on CPU utilization.",
-      ],
-      correctAnswer: 3,
-    },
-    {
-      id: 225,
-      question:
-        "Your managed instance group raised an alert stating that new instance creation has failed to create new instances. You need to solve the instance creation problem. What should you do?",
-      answers: [
-        "Create an instance template that contains valid syntax which will be used by the instance group. Delete any persistent disks with the same name as instance names.",
-        "Create an instance template that contains valid syntax that will be used by the instance group. Verify that the instance name and persistent disk name values are not the same in the template.",
-        "Verify that the instance template being used by the instance group contains valid syntax. Delete any persistent disks with the same name as instance names. Set the disks.autoDelete property to true in the instance template.",
-        "Delete the current instance template and replace it with a new instance template. Verify that the instance name and persistent disk name values are not the same in the template. Set the disks.autoDelete property to true in the instance template.",
-      ],
-      correctAnswer: 0,
-    },
-    {
-      id: 226,
-      question:
-        "You have created an application that is packaged into a Docker image. You want to deploy the Docker image as a workload on Google Kubernetes Engine. What should you do?",
-      answers: [
-        "Upload the image to Cloud Storage and create a Kubernetes Service referencing the image.",
-        "Upload the image to Cloud Storage and create a Kubernetes Deployment referencing the image.",
-        "Upload the image to Artifact Registry and create a Kubernetes Service referencing the image.",
-        "Upload the image to Artifact Registry and create a Kubernetes Deployment referencing the image.",
-      ],
-      correctAnswer: 3,
-    },
-    {
-      id: 227,
-      question:
-        "You are using Looker Studio to visualize a table from your data warehouse that is built on top of BigQuery. Data is appended to the data warehouse during the day. At night, the daily summary is recalculated by overwriting the table. You just noticed that the charts in Looker Studio are broken, and you want to analyze the problem. What should you do?",
-      answers: [
-        "In Cloud Logging, create a filter for your Looker Studio report.",
-        "Use the open source CLI tool, Snapshot Debugger, to find out why the data was not refreshed correctly.",
-        "Review the Error Reporting page in the Google Cloud console to find any errors.",
-        "Use the BigQuery interface to review the nightly job and look for any errors.",
       ],
       correctAnswer: 3,
     },
@@ -3085,30 +3018,6 @@ export class AppComponent implements OnInit {
         "Turn on Google Cloud firewall rules logging, and set up alerts for any insert, update, or delete events.",
       ],
       correctAnswer: 1,
-    },
-    {
-      id: 258,
-      question:
-        "You are configuring service accounts for an application that spans multiple projects. Virtual machines (VMs) running in the web-applications project need access to BigQuery datasets in the crm-databases project. You want to follow Google-recommended practices to grant access to the service account in the web-applications project. What should you do?",
-      answers: [
-        'Grant "project owner" for web-applications appropriate roles to crm-databases.',
-        'Grant "project owner" role to crm-databases and the web-applications project.',
-        'Grant "project owner" role to crm-databases and roles/bigquery.dataViewer role to web-applications.',
-        "Grant roles/bigquery.dataViewer role to crm-databases and appropriate roles to web-applications.",
-      ],
-      correctAnswer: 3,
-    },
-    {
-      id: 259,
-      question:
-        "Your Dataproc cluster runs in a single Virtual Private Cloud (VPC) network in a single subnetwork with range 172.16.20.128/25. There are no private IP addresses available in the subnetwork. You want to add new VMs to communicate with your cluster using the minimum number of steps. What should you do?",
-      answers: [
-        "Modify the existing subnet range to 172.16.20.0/24.",
-        "Create a new Secondary IP Range in the VPC and configure the VMs to use that range.",
-        "Create a new VPC network for the VMs. Enable VPC Peering between the VMs'VPC network and the Dataproc cluster VPC network.",
-        "Create a new VPC network for the VMs with a subnet of 172.32.0.0/16. Enable VPC network Peering between the Dataproc VPC network and the VMs VPC network. Configure a custom Route exchange.",
-      ],
-      correctAnswer: 0,
     },
     {
       id: 260,

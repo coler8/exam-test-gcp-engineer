@@ -74,7 +74,7 @@
   style="margin: auto; border: 1px solid gray; margin-bottom: 1rem"
 >
   <div style="margin: 1rem">
-    <h4>{{ item.id }}. {{ item.question }}</h4>
+    <h4>{{ i + 1 }}. {{ item.question }}</h4>
     <ul style="list-style: none; padding: 0; width: 100%">
       @for (answer of item.answers; track $index; let j = $index) {
       <li
