@@ -1156,7 +1156,7 @@ export class AppComponent implements OnInit {
         "Your company implemented BigQuery as an enterprise data warehouse. Users from multiple business units run queries on this data warehouse. However, you notice that query costs for BigQuery are very high, and you need to control costs. Which two methods should you use? (Choose two.)",
       answers: [
         "Split the users from business units to multiple projects.",
-        "Apply a user- or project-level custom query quota for BigQuery data warehouse. correcta tmb",
+        "Apply a user- or project-level custom query quota for BigQuery data warehouse. -",
         "Create separate copies of your BigQuery data warehouse for each business unit.",
         "Split your BigQuery data warehouse into multiple data warehouses for each business unit.",
         "Change your BigQuery query model from on-demand to flat rate. Apply the appropriate number of slots to each Project.",
@@ -1904,7 +1904,7 @@ export class AppComponent implements OnInit {
         "Use signed URLs to allow suppliers limited time access to store their objects.",
         "Set up an SFTP server for your application, and create a separate user for each supplier.",
         "Build a Cloud function that triggers a timer of 45 days to delete objects that have expired.",
-        "Develop a script that loops through all Cloud Storage buckets and deletes any buckets that are older than 45 days. CORRECTA TMB",
+        "Develop a script that loops through all Cloud Storage buckets and deletes any buckets that are older than 45 days. -",
       ],
       correctAnswer: 1,
     },
@@ -2071,7 +2071,7 @@ export class AppComponent implements OnInit {
       answers: [
         "Use Cloud Bigtable for data storage.",
         "Use Cloud SQL for data storage.",
-        "Use Cloud Spanner for data storage. Most Voted",
+        "Use Cloud Spanner for data storage.",
         "Use Firestore for data storage.",
       ],
       correctAnswer: 2,
@@ -2396,7 +2396,7 @@ export class AppComponent implements OnInit {
         "In the Google Cloud console, visualize the costs related to the projects in the Reports section.",
         "In the Google Cloud console, visualize the costs related to the projects in the Cost breakdown section.",
         "In the Google Cloud console, use the export functionality of the Cost table. Create a Looker Studio dashboard on top of the CSV export.",
-        "Configure Cloud Billing data export to BigQuery for the billing account. Create a Looker Studio dashboard on top of the BigQuery export. Most Voted",
+        "Configure Cloud Billing data export to BigQuery for the billing account. Create a Looker Studio dashboard on top of the BigQuery export.",
       ],
       correctAnswer: 3,
     },
@@ -3084,7 +3084,7 @@ export class AppComponent implements OnInit {
       question:
         "You just installed the Google Cloud CLI on your new corporate laptop. You need to list the existing instances of your company on Google Cloud. What must you do before you run the gcloud compute instances list command? (Choose two.)",
       answers: [
-        "Run gcloud auth login, enter your login credentials in the dialog window, and paste the received login token to gcloud CLI. correcta tmb",
+        "Run gcloud auth login, enter your login credentials in the dialog window, and paste the received login token to gcloud CLI. -",
         "Create a Google Cloud service account, and download the service account key. Place the key file in a folder on your machine where gcloud CLI can find it.",
         "Download your Cloud Identity user account key. Place the key file in a folder on your machine where gcloud CLI can find it.",
         "Run gcloud config set compute/zone $my_zone to set the default zone for gcloud CLI.",
@@ -3218,7 +3218,7 @@ export class AppComponent implements OnInit {
         "Your company uses BigQuery to store and analyze data. Upon submitting your query in BigQuery, the query fails with a quotaExceeded error. You need to diagnose the issue causing the error. What should you do? (Choose two.)",
       answers: [
         "Use BigQuery BI Engine to analyze the issue.",
-        "Use the INFORMATION_SCHEMA views to analyze the underlying issue. correcta tmb",
+        "Use the INFORMATION_SCHEMA views to analyze the underlying issue. -",
         "Configure Cloud Trace to analyze the issue.",
         "Search errors in Cloud Audit Logs to analyze the issue.",
         "View errors in Cloud Monitoring to analyze the issue.",
