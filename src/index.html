@@ -1,13 +1,141 @@
-<!doctype html>
-<html lang="en">
-<head>
-  <meta charset="utf-8">
-  <title>GcpEngineer</title>
-  <base href="/">
-  <meta name="viewport" content="width=device-width, initial-scale=1">
-  <link rel="icon" type="image/x-icon" href="favicon.ico">
-</head>
-<body>
-  <app-root></app-root>
-</body>
+<!DOCTYPE html>
+<html lang="es">
+  <head>
+    <meta charset="UTF-8" />
+    <title>Feliz cumpleaños Adam</title>
+    <style>
+      body {
+        margin: 0;
+        padding: 0;
+        background: #000;
+        color: white;
+        font-family: "Arial", sans-serif;
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        justify-content: center;
+        height: 100vh;
+        overflow: hidden;
+      }
+
+      h1 {
+        font-size: 3em;
+        margin-bottom: 20px;
+        text-align: center;
+        animation: fadeIn 2s ease-in-out;
+      }
+
+      img {
+        max-width: 80%;
+        max-height: 80%;
+        border-radius: 20px;
+        box-shadow: 0 0 30px rgba(255, 255, 255, 0.2);
+        display: none;
+      }
+
+      @keyframes fadeIn {
+        from {
+          opacity: 0;
+          transform: translateY(-20px);
+        }
+        to {
+          opacity: 1;
+          transform: translateY(0);
+        }
+      }
+
+      canvas {
+        position: fixed;
+        top: 0;
+        left: 0;
+        pointer-events: none;
+        z-index: 10;
+      }
+    </style>
+  </head>
+  <body>
+    <canvas id="confetti"></canvas>
+    <h1 id="mensaje">🎉 ¡Feliz cumpleaños Adam! 🎉</h1>
+    <img id="gif" src="" alt="GIF de cumpleaños" />
+
+    <script>
+      // IDs de tus gifs de Google Drive
+      const gifIDs = [
+        "1jn2eSlq2nNix-zk31L3VZP7DHl1h3AeM",
+        "1xNxe1GN4xSir4Gsf8CBQ11kcy-xf6dY-",
+      ];
+
+      // Mostrar el GIF después de unos segundos
+      setTimeout(() => {
+        const randomID = gifIDs[Math.floor(Math.random() * gifIDs.length)];
+        const url = `https://drive.google.com/uc?export=view&id=${randomID}`;
+        document.getElementById("gif").src = url;
+        document.getElementById("gif").style.display = "block";
+      }, 3000);
+
+      // Confetti animation 🎊
+      const canvas = document.getElementById("confetti");
+      const ctx = canvas.getContext("2d");
+      let W = window.innerWidth;
+      let H = window.innerHeight;
+      canvas.width = W;
+      canvas.height = H;
+
+      const particles = [];
+      const particleCount = 150;
+      for (let i = 0; i < particleCount; i++) {
+        particles.push({
+          x: Math.random() * W,
+          y: Math.random() * H,
+          r: Math.random() * 6 + 4,
+          d: Math.random() * particleCount,
+          color: `hsl(${Math.random() * 360},100%,50%)`,
+          tilt: Math.floor(Math.random() * 10) - 10,
+          tiltAngleIncremental: Math.random() * 0.07 + 0.05,
+          tiltAngle: 0,
+        });
+      }
+
+      function draw() {
+        ctx.clearRect(0, 0, W, H);
+        for (let i = 0; i < particleCount; i++) {
+          const p = particles[i];
+          ctx.beginPath();
+          ctx.lineWidth = p.r;
+          ctx.strokeStyle = p.color;
+          ctx.moveTo(p.x + p.tilt + p.r / 2, p.y);
+          ctx.lineTo(p.x + p.tilt, p.y + p.tilt + p.r / 2);
+          ctx.stroke();
+        }
+        update();
+      }
+
+      function update() {
+        for (let i = 0; i < particleCount; i++) {
+          const p = particles[i];
+          p.tiltAngle += p.tiltAngleIncremental;
+          p.y += (Math.cos(p.d) + 3 + p.r / 2) / 2;
+          p.tilt = Math.sin(p.tiltAngle - i / 3) * 15;
+
+          if (p.y > H) {
+            p.y = -10;
+            p.x = Math.random() * W;
+          }
+        }
+      }
+
+      function loop() {
+        draw();
+        requestAnimationFrame(loop);
+      }
+
+      loop();
+      window.addEventListener("resize", () => {
+        W = window.innerWidth;
+        H = window.innerHeight;
+        canvas.width = W;
+        canvas.height = H;
+      });
+    </script>
+  </body>
 </html>
