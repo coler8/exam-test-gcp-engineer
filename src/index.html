@@ -62,15 +62,16 @@
       // IDs de tus gifs de Google Drive
       const urls = [
         "https://raw.githubusercontent.com/coler8/web-adam-cumple/main/public/celebration-dance.gif",
-        "1xNxe1GN4xSir4Gsf8CBQ11kcy-xf6dY-",
+        "https://raw.githubusercontent.com/coler8/web-adam-cumple/main/public/goool-goal.gif"
       ];
-
+      
       // Mostrar el GIF después de unos segundos
       setTimeout(() => {
-        const randomUrl = gifIDs[Math.floor(Math.random() * gifIDs.length)];
-        document.getElementById("gif").src = randomUrl;
-        document.getElementById("gif").style.display = "block";
-      }, 3000);
+        const randomUrl = urls[Math.floor(Math.random() * urls.length)];
+        const gifElement = document.getElementById("gif");
+        gifElement.src = randomUrl;
+        gifElement.style.display = "block";
+      }, 2000);
 
       // Confetti animation 🎊
       const canvas = document.getElementById("confetti");
